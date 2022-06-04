@@ -1,0 +1,23 @@
+<label>Enter your name:</label>
+<!-- <input #nameInput type=text (input)="name = nameInput.value"> -->
+<input type="text" [(ngModel)]="nameInput" #name>
+
+<button (click)="nameInput = ''" (click)="name.value = ''" [disabled]="nameInput === ''">Clear</button>
+
+<p id="welcome" *ngIf="nameInput">Welcome, {{nameInput}}! :)</p>
+
+<label for="activity-search">Enter location to get ideas:</label>
+<input type=text id="activity-search" #search placeholder="e.g. Fleet or Hampshire" 
+    onfocus="this.placeholder=''" 
+    onblur="this.placeholder='e.g. Fleet or Hampshire'">
+<button id="search" (click)="searchActivities(search.value)" (click)="search.value=''" (click)="emptySelectedActivity()">Search</button>
+
+<article [ngStyle]="{backgroundColor: getColor()}"> 
+    <div *ngIf="results.length; else noResults">
+        <div id="searchResult" *ngFor="let activity of results; let i = index">
+            <p> {{i + 1}}. {{activity.name}}</p>
+            <button (click)="selectActivity(activity)">View</button>
+        </div>
+    </div>
+</article>
+<ng-template #noResults><h3>{{notFoundMessage}}</h3></ng-template>
