@@ -8,12 +8,7 @@
   </section>
   <article id="details">
     <ng-container *ngIf="selectedActivity">
-      <p [ngClass]="{bold: selectedActivity}">{{selectedActivity?.name}}</p>
-      <p>{{selectedActivity?.city}}, {{selectedActivity?.county}}</p>
-      <p>
-        <a href="{{selectedActivity?.website}}" target="_Blank">Website</a>
-      </p>
-      <img [src]="selectedActivity?.photoUrl">
+      <app-activity-details [activity]="selectedActivity"></app-activity-details>
     </ng-container>
   </article>
 </main>

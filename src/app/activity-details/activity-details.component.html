@@ -1,0 +1,6 @@
+<p [ngClass]="{bold: activity}">{{activity?.name}}</p>
+<p>{{activity?.city}}, {{activity?.county}}</p>
+<p>
+  <a href="{{activity?.website}}" target="_Blank">Website</a>
+</p>
+<img [src]="activity?.photoUrl">
