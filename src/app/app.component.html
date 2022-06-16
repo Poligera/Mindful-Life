@@ -4,7 +4,7 @@
 </header>
 <main>
   <section>
-    <activities-list [activities]="activitiesList" (selectedActivityEvent)="updateSelectedActivity($event)" (emptyActivityEvent)="emptySelectedActivity()"></activities-list>
+    <activities-list [activities]="activitiesList" (activitySelected)="updateSelectedActivity($event)" (activityEmptied)="emptySelectedActivity()"></activities-list>
   </section>
   <article id="details">
     <ng-container *ngIf="selectedActivity">

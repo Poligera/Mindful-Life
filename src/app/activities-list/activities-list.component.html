@@ -10,13 +10,13 @@
 <input type=text id="activity-search" #search placeholder="e.g. Fleet or Hampshire" 
     onfocus="this.placeholder=''" 
     onblur="this.placeholder='e.g. Fleet or Hampshire'">
-<button id="search" (click)="searchActivities(search.value)" (click)="search.value=''" (click)="emptySelectedActivity()">Search</button>
+<button id="search" (click)="searchActivities(search.value)" (click)="search.value=''" (click)="onEmptyActivity()">Search</button>
 
 <article [ngStyle]="{backgroundColor: getColor()}"> 
     <div *ngIf="results.length; else noResults">
         <div id="searchResult" *ngFor="let activity of results; let i = index">
             <p> {{i + 1}}. {{activity.name}}</p>
-            <button (click)="selectActivity(activity)">View</button>
+            <button (click)="onSelectActivity(activity)">View</button>
         </div>
     </div>
 </article>

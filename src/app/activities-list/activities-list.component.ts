@@ -20,9 +20,9 @@ export class ActivitiesListComponent implements OnInit {
 
   results: Activity[] = [];
 
-  @Output() selectedActivityEvent = new EventEmitter<Activity>();
+  @Output() activitySelected = new EventEmitter<Activity>();
 
-  @Output() emptyActivityEvent = new EventEmitter<undefined>();
+  @Output() activityEmptied = new EventEmitter<undefined>();
 
   notFoundMessage = "";
 
@@ -41,11 +41,11 @@ export class ActivitiesListComponent implements OnInit {
     if (!(this.results.length)) this.notFoundMessage = "No results, try another location!";
     }
 
-  selectActivity(activity: Activity){
-    this.selectedActivityEvent.emit(activity);
+  onSelectActivity(activity: Activity){
+    this.activitySelected.emit(activity);
   }
   
-  emptySelectedActivity(){
-    this.selectedActivityEvent.emit();
+  onEmptyActivity(){
+    this.activityEmptied.emit();
   }
 }
